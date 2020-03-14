@@ -14,9 +14,10 @@ document.getElementById('resetGame').addEventListener('click', resetGame);
 // game function
 
 function resetGame() {
-  var player_lives = 3;
-  var computer_lives = 3;
-  message_area.innerHTML += 'Game Live have reset! <br>';
+  clearArea = true;
+  player_lives = 3;
+  computer_lives = 3;
+  message_area.innerHTML += 'Game Lives have reset! <br>';
 }
 
 function runGame() {
@@ -24,7 +25,7 @@ function runGame() {
     message_area.innerHTML = '';
   }
 
-  clearArea = false;
+  clearArea = true;
 
   message_area.innerHTML += '******************** <br>';
   message_area.innerHTML += 'Computer Lives: ' + computer_lives + '<br>';
