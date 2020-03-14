@@ -2,3 +2,7 @@ body {
 	text-align: center;
 	padding: 100px 50px;
 }
+
+#playGame {
+	background-color: lightblue;
+}
