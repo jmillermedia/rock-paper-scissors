@@ -7,7 +7,7 @@ Play Rock, Paper, Scissors in your browser!
 There is no installation process for this repo. Simply pull down and open in the browser of your choice.
 
 ## Game Rules:
-Rock breaks scissors, scissors cuts paper, paper covers rock.” In other words, a player who chooses rock beats one who chooses scissors; scissors in turn beats paper; paper beats rock. This yields a winner whenever the two players choose differently.
+Rock breaks scissors, scissors cuts paper, paper covers rock. In other words, a player who chooses rock beats one who chooses scissors; scissors in turn beats paper; paper beats rock. This yields a winner whenever the two players choose differently.
 
 ## MIT License:
 MIT License
