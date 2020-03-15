@@ -9,6 +9,10 @@ There is no installation process for this repo. Simply pull down and open in the
 ## Game Rules:
 Rock breaks scissors, scissors cuts paper, paper covers rock. In other words, a player who chooses rock beats one who chooses scissors; scissors in turn beats paper; paper beats rock. This yields a winner whenever the two players choose differently.
 
+## Tutorials Used
+[Change the Background Color Dynamically with Javascript](https://www.tutorialrepublic.com/codelab.php?topic=faq&file=javascript-change-background-color-of-an-element-dynamically 'tutorialrepublic.com')
+[Button Disabled Property](https://www.w3schools.com/jsref/prop_pushbutton_disabled.asp 'w3schools.com')
+
 ## MIT License:
 MIT License
 
