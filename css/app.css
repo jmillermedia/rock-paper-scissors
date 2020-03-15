@@ -1,8 +1,22 @@
 body {
 	text-align: center;
 	padding: 100px 50px;
+	border: 1px #ccc solid;
 }
 
 #playGame {
 	background-color: lightblue;
+}
+
+#resetGame {
+	background-color: lightcoral;
+	visibility: hidden;
+}
+
+#game_area {
+	border: 3px #ccc solid;
+	width: 300px;
+	height: 255px;
+	margin: 0px auto;
+	background-color: lightgrey;
 }

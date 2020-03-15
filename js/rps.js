@@ -17,12 +17,16 @@ function resetGame() {
   clearArea = true;
   player_lives = 3;
   computer_lives = 3;
-  message_area.innerHTML += 'Game Lives have reset! <br>';
+  message_area.innerHTML += 'The game has been reset! <br> Select Rock, Paper, or Scissors and press play!<br>';
+  document.getElementById("playGame").disabled = false; //enables button should the game be over.
+  document.getElementById("game_area").style.backgroundColor = "lightgrey";
+  document.getElementById("resetGame").style.visibility = 'hidden';
 }
 
 function runGame() {
   if (clearArea) {
     message_area.innerHTML = '';
+  document.getElementById("resetGame").style.visibility = 'hidden';
   }
 
   clearArea = true;
@@ -41,7 +45,8 @@ function runGame() {
   message_area.innerHTML += 'Player Chose: ' + player_choice + '<br>';
   
   if (player_choice == computer_choice) {
-  message_area.innerHTML += "It's A Tie! No One Wins! <br>"; //if the code can stop at a certain point, it's better to have it stop there than run the code to the bottom
+    document.getElementById("game_area").style.backgroundColor = "lightgrey";
+    message_area.innerHTML += "It's A Tie! No One Wins! <br>"; //if the code can stop at a certain point, it's better to have it stop there than run the code to the bottom
   } else if (player_choice == 'Rock') {
     checkComputerWins('Paper', 'covers', 'smashes');
   } else if (player_choice == 'Paper') {
@@ -49,7 +54,7 @@ function runGame() {
   } else if (player_choice == 'Scissors') {
     checkComputerWins('Rock', 'smashes', 'cuts');
   } else { 
-  message_area.innerHTML += "Well, that's not a valid choice. <br>";
+  message_area.innerHTML += "Please select Rock, Paper, or Scissors to play. <br>";
   }
   
   checkStatus();
@@ -57,21 +62,27 @@ function runGame() {
 
 function checkComputerWins(validateChoice, winMessage, loseMessage){
   if (computer_choice == validateChoice) {
-        message_area.innerHTML += 'You lose! ' + computer_choice + ' ' + winMessage + ' ' + player_choice + '<br>';
+        message_area.innerHTML += 'You lose! ' + computer_choice + ' ' + winMessage + ' ' + player_choice + "!" + '☠️' + '<br>';
         player_lives = player_lives -1;
+        document.getElementById("game_area").style.backgroundColor = "crimson";
     } else {
-        message_area.innerHTML += 'You win! ' + player_choice + ' ' + loseMessage + ' ' + computer_choice + '<br>';
+        message_area.innerHTML += 'You win! ' + player_choice + ' ' + loseMessage + ' ' + computer_choice +  "!" + '&#128526;' +  '<br>';
         computer_lives = computer_lives -1;
+        document.getElementById("game_area").style.backgroundColor = "lightgreen";
     }
   
 }
 
 function checkStatus() {
    if (player_lives == 0) {
-     showWinLoseMessage("lost")
-   }  else if (computer_lives == 0) {
-     showWinLoseMessage ("won")
-   }  else {
+      showWinLoseMessage("lost")
+  } else if (computer_lives == 0) {
+      showWinLoseMessage ("won")
+  } else if (player_lives == 1) {
+      message_area.innerHTML += '******************** <br>' + 'PLAYER HAS 1 LIFE REMAINING! <br>';
+  } else if (computer_lives == 1) {
+      message_area.innerHTML += '******************** <br>' + 'COMPUTER HAS 1 LIFE REMAINING! <br>';
+  } else {
     message_area.innerHTML += 'Select another choice!<br>'
     message_area.innerHTML += '******************** <br><br>'
      }
@@ -82,5 +93,7 @@ function showWinLoseMessage(status) {
   message_area.innerHTML += 'Game Over. <br>'
   message_area.innerHTML += '******************** <br>';
   message_area.innerHTML += 'You ' + status + '! Would you like to play again? <br>';
+  document.getElementById("playGame").disabled = true; //disables button when gamelives = 0
+  document.getElementById("resetGame").style.visibility = 'visible';
   clearArea = true;
 }
