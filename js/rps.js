@@ -27,10 +27,13 @@ function runGame() {
   if (clearArea) {
     message_area.innerHTML = '';
   document.getElementById("resetGame").style.visibility = 'hidden';
+  gamePlay();
   }
 
   clearArea = true;
 
+//Main gamplay now as function, called within runGame
+  function gamePlay() {
   message_area.innerHTML += '******************** <br>';
   message_area.innerHTML += 'Computer Lives: ' + computer_lives + '<br>';
   message_area.innerHTML += 'Player Lives: ' + player_lives + '<br>';
@@ -43,7 +46,10 @@ function runGame() {
   message_area.innerHTML += '******************** <br>';
   message_area.innerHTML += 'Computer Chose: ' + computer_choice + '<br>';
   message_area.innerHTML += 'Player Chose: ' + player_choice + '<br>';
-  
+  playComparison();
+  }
+
+  function playComparison(){
   if (player_choice == computer_choice) {
     document.getElementById("game_area").style.backgroundColor = "lightgrey";
     message_area.innerHTML += "It's A Tie! No One Wins! <br>"; //if the code can stop at a certain point, it's better to have it stop there than run the code to the bottom
@@ -58,7 +64,9 @@ function runGame() {
   }
   
   checkStatus();
+  }
 }
+
 
 function checkComputerWins(validateChoice, winMessage, loseMessage){
   if (computer_choice == validateChoice) {
@@ -85,8 +93,8 @@ function checkStatus() {
   } else {
     message_area.innerHTML += 'Select another choice!<br>'
     message_area.innerHTML += '******************** <br><br>'
-     }
-   }
+  }
+}
 
 function showWinLoseMessage(status) {
   message_area.innerHTML += '******************** <br>';
